@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block contenu %}
+<h2>Créer un compte</h2>
+<form method="post">{% csrf_token %}{{ form.as_p }}<button>Créer mon compte</button></form>
+{% endblock %}

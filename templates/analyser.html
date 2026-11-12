@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block contenu %}
+<h2>Analyser des paiements</h2>
+{% if erreur %}<p style="color:red">{{ erreur }}</p>{% endif %}
+
+<h3>Un seul paiement</h3>
+<form method="post">{% csrf_token %}
+  <p>Type :
+    <select name="type">
+      <option value="TRANSFER">TRANSFER</option>
+      <option value="CASH_OUT">CASH_OUT</option>
+    </select></p>
+  <p>Montant : <input name="montant" type="number" step="any" required></p>
+  <p>Heure (0 à 23) : <input name="heure" type="number" min="0" max="23" required></p>
+  <button>Analyser</button>
+</form>
+
+<h3>Un fichier CSV (une journée, une semaine...)</h3>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+  <input type="file" name="fichier" accept=".csv" required>
+  <button>Analyser le fichier</button>
+</form>
+<p>Colonnes du CSV : <code>type, amount, heure</code></p>
+{% endblock %}

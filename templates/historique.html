@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block contenu %}
+<h2>Historique</h2>
+{% for a in analyses %}
+  <p><a href="{% url 'resultat' a.id %}">{{ a.date|date:"d/m/Y H:i" }} · {{ a.nom_fichier }}</a></p>
+{% empty %}
+  <p>Aucune analyse pour l'instant.</p>
+{% endfor %}
+{% endblock %}

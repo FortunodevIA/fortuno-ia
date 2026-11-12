@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block contenu %}
+<h2>Résultat : {{ analyse.nom_fichier }}</h2>
+<p>{{ analyse.date|date:"d/m/Y H:i" }} · {{ transactions|length }} paiements</p>
+<div style="overflow-x:auto">
+<table border="1" cellpadding="6" style="border-collapse:collapse">
+  <tr>
+    <th>Type</th><th>Montant</th><th>Heure</th><th>Score</th><th>Décision</th>
+  </tr>
+  {% for t in transactions %}
+  <tr style="background:{% if t.decision == 'bloquer' %}#f8c9c9{% elif t.decision == 'vérifier' %}#fde3b8{% else %}#d6f0d6{% endif %}">
+    <td>{{ t.type }}</td>
+    <td>{{ t.montant|floatformat:0 }}</td>
+    <td>{{ t.heure }}h</td>
+    <td>{{ t.score|floatformat:2 }}</td>
+    <td>{{ t.decision }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<p><a href="{% url 'analyser' %}">Nouvelle analyse</a></p>
+{% endblock %}
