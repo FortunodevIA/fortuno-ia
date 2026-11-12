@@ -1,5 +1,30 @@
 {% extends "base.html" %}
 {% block contenu %}
 <h1>Fortuno IA</h1>
-<p>Détectez les paiements mobiles à risque de fraude.</p>
+<p>Trouvez les paiements mobiles à risque de fraude, en quelques secondes.</p>
+
+<h2>Comment ça marche</h2>
+<div style="display:flex; gap:16px; flex-wrap:wrap">
+  <div style="flex:1; min-width:200px; border:1px solid #ccc; padding:12px">
+    <h3>1. Envoyez</h3>
+    <p>Saisissez un paiement, ou envoyez un fichier CSV (une journée, une semaine).</p>
+  </div>
+  <div style="flex:1; min-width:200px; border:1px solid #ccc; padding:12px">
+    <h3>2. Analysez</h3>
+    <p>Le modèle donne un score de risque à chaque paiement.</p>
+  </div>
+  <div style="flex:1; min-width:200px; border:1px solid #ccc; padding:12px">
+    <h3>3. Décidez</h3>
+    <p>Vert : passer. Orange : vérifier. Rouge : bloquer.</p>
+  </div>
+</div>
+
+<p style="margin-top:20px">
+  {% if user.is_authenticated %}
+    <a href="{% url 'analyser' %}"><button>Commencer une analyse</button></a>
+  {% else %}
+    <a href="{% url 'inscription' %}"><button>Créer un compte</button></a>
+    <a href="{% url 'login' %}">J'ai déjà un compte</a>
+  {% endif %}
+</p>
 {% endblock %}
