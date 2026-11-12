@@ -5,7 +5,7 @@ L'utilisateur saisit un paiement ou envoie un fichier CSV, et voit pour chaque
 paiement une décision : passer, vérifier ou bloquer.
 
 ## Installation
-git clone https://github.com/presidentfortuno-star/fortuno-ia.git
+git clone https://github.com/FortunodevIA/fortuno-ia.git
 cd fortuno-ia
 python3 -m venv venv
 source venv/bin/activate
