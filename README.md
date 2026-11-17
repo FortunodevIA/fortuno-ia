@@ -36,3 +36,7 @@ Ouvrir http://127.0.0.1:8000
 Le modèle utilise 3 colonnes (type, montant, heure). Les colonnes de soldes
 sont retirées pour éviter une fuite de données (recommandation du dataset).
 Il trouve environ la moitié des fraudes et fait des fausses alertes.
+
+## Conception
+- Wireframes : `docs/wireframes/`
+- Maquettes : `docs/maquettes/`
